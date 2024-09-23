@@ -14,7 +14,7 @@ arma_pc = ""
 
 # Arranca el Juego
 def game():
-    print("""
+    print(r"""
     
   _______  __  .___________. __    __    ______   .__   __. 
  /  _____||  | |           ||  |  |  |  /  __  \  |  \ |  | 
@@ -31,11 +31,9 @@ def game():
  \______| /__/     \__\ |__|  |__| |_______|
                                             
 
-
-
 """)
     print("PIEDRA, PAPEL O TIJERA")
-    print("VERSION 0.1")
+    print("VERSION 0.0.1")
     print("FOR GIPECO")
     print()
 
@@ -45,29 +43,23 @@ game()
 # ------- Jugador elige un arma -------
 def arma_player_sel():
     global arma_player
-    print("1", armas[0])
-    print("2", armas[1])
-    print("3", armas[2])
-    print()
-    player = int(input("Escoge una opcion 1-2-3? "))
-    if player >= 4:
-        arma_player_sel()
-    elif player == 1:
-        arma_player = armas[0]
-    elif player == 2:
-        arma_player = armas[1]
-    elif player == 3:
-        arma_player = armas[2]
-    print()
-    print("Tu eliges: ", arma_player)
-    print()
-    return arma_player
+    while True:
+        print("1", armas[0])
+        print("2", armas[1])
+        print("3", armas[2])
+        player = int(input("Escoge una opción 1-2-3? "))
+        if player in [1, 2, 3]:
+            arma_player = armas[player - 1]
+            print("Tu eliges:", arma_player)
+            break
+        else:
+            print("Opción no válida, intenta de nuevo.")
 
 
 arma_player_sel()
-print("PC Esta pensando!!!!!!")
-print()
-sleep(2)
+for _ in range(3):
+    sleep(1)
+    print("PC está pensando...")
 
 # ------- PC elije un arma -------
 
@@ -143,7 +135,11 @@ def volver():
     jugarNow = str(input("QUIERES VOLVER A JUGAR? S/N "))
     if jugarNow == "s" or jugarNow == "S" or jugarNow == "Si" or jugarNow == "SI" or jugarNow == "si":
         print("Game Restart!!!")
-        game(), arma_player_sel(), arma_pc_sel(), logica(), volver()
+        game()
+        arma_player_sel()
+        arma_pc_sel()
+        logica()
+        volver()
     elif jugarNow == "n" or jugarNow == "N" or jugarNow == "No" or jugarNow == "NO" or jugarNow == "no":
         exit()
     else:
