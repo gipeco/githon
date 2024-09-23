@@ -134,7 +134,7 @@ logica()
 def volver():
     jugarNow = str(input("QUIERES VOLVER A JUGAR? S/N "))
     if jugarNow == "s" or jugarNow == "S" or jugarNow == "Si" or jugarNow == "SI" or jugarNow == "si":
-        print("Game Restart!!!")
+        print("Game Restart !!!")
         game()
         arma_player_sel()
         arma_pc_sel()
