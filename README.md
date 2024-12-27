@@ -14,9 +14,10 @@ import os
 Python 3.8
 for GIPECO
 
-## Version 0.0.0
+## Version 0.0.2
+    * Mejora en el manejo de entradas inválidas.
+    * Simplificación del reinicio del juego.
 
-Primera version para aprender
 
 ## Version 0.0.1
 
@@ -63,3 +64,6 @@ arma_pc_sel()
 logica()
 volver()```
 ````
+## Version 0.0.0
+
+Primera version para aprender
