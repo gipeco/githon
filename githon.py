@@ -1,6 +1,8 @@
 # Este juego es para aprender a programar en Python, tiene algunas cosas que talvez no esten bien, pero estoy aprendiendo este maravilloso lenjuage.
-# Python 3.8
+# Python 3.8 del 2020
+# Actualizacin 2024 Python 3.13.1
 
+# Librerias utilizadas
 import random
 from time import sleep
 from tqdm import tqdm
@@ -12,9 +14,11 @@ armas = ["Piedra", "Papel", "Tijera"]
 arma_player = ""
 arma_pc = ""
 
+
 # Arranca el Juego
 def game():
-    print(r"""
+    print(
+        r"""
     
   _______  __  .___________. __    __    ______   .__   __. 
  /  _____||  | |           ||  |  |  |  /  __  \  |  \ |  | 
@@ -31,14 +35,16 @@ def game():
  \______| /__/     \__\ |__|  |__| |_______|
                                             
 
-""")
+"""
+    )
     print("PIEDRA, PAPEL O TIJERA")
-    print("VERSION 0.0.1")
+    print("VERSION 0.1.0")
+    print("2020-2024")
     print("FOR GIPECO")
     print()
 
-
 game()
+
 # Elección de Armas
 # ------- Jugador elige un arma -------
 def arma_player_sel():
@@ -55,7 +61,6 @@ def arma_player_sel():
         else:
             print("Opción no válida, intenta de nuevo.")
 
-
 arma_player_sel()
 for _ in range(3):
     sleep(1)
@@ -64,7 +69,6 @@ for _ in range(3):
 # ------- PC elije un arma -------
 
 # Caracteristica de tiempo para darle un poco más de suspenso
-
 
 def arma_pc_sel():
     global arma_pc
@@ -88,7 +92,6 @@ def arma_pc_sel():
     print()
     return arma_pc
 
-
 arma_pc_sel()
 
 # Comprobacion de armas
@@ -98,7 +101,6 @@ print()
 # Mecanica del Juego
 
 # Si player Gana
-
 
 def logica():
     if arma_player == armas[1] and arma_pc == armas[0]:
@@ -125,26 +127,63 @@ def logica():
         print()
     return
 
-
 logica()
 
 # Volver a empezar el juego
 
-
+""" Año 2020, que tontera hice aqui pero funcionaba, jajaja
 def volver():
     jugarNow = str(input("QUIERES VOLVER A JUGAR? S/N "))
-    if jugarNow == "s" or jugarNow == "S" or jugarNow == "Si" or jugarNow == "SI" or jugarNow == "si":
+    if (
+        jugarNow == "s"
+        or jugarNow == "S"
+        or jugarNow == "Si"
+        or jugarNow == "SI"
+        or jugarNow == "si"
+    ):
         print("Game Restart !!!")
         game()
         arma_player_sel()
         arma_pc_sel()
         logica()
         volver()
-    elif jugarNow == "n" or jugarNow == "N" or jugarNow == "No" or jugarNow == "NO" or jugarNow == "no":
+    elif (
+        jugarNow == "n"
+        or jugarNow == "N"
+        or jugarNow == "No"
+        or jugarNow == "NO"
+        or jugarNow == "no"
+    ):
         exit()
     else:
         print("DEBE SELECIONAR SI O NO")
         volver()
+"""
+
+# Año 2024
 
 
+def volver():
+    """
+    Esta función pregunta al usuario si desea continuar jugando.
+    Valida la respuesta y reinicia el juego o sale según corresponda.
+    """
+
+    while True:
+        jugar_de_nuevo = input("¿Quieres volver a jugar? S/N ").lower()
+
+        if jugar_de_nuevo in ["s", "si"]:
+            print("¡Juego reiniciado!")
+            game()  # Suponiendo que tienes una función 'game' definida
+            arma_player_sel()  # Suponiendo que tienes una función 'arma_player_sel' definida
+            arma_pc_sel()  # Suponiendo que tienes una función 'arma_pc_sel' definida
+            logica()  # Suponiendo que tienes una función 'logica' definida
+        elif jugar_de_nuevo in ["n", "no"]:
+            print("¡Hasta luego!")
+            break  # Salimos del bucle y terminamos el programa
+        else:
+            print("Por favor, ingresa 's' para sí o 'n' para no.")
+            
+            
+            
 volver()
